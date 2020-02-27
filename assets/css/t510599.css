@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap&subset=chinese-traditional");
+html, body {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    font-family: 'Consolas', 'Noto Sans TC', "微軟正黑體", "Microsoft JhengHei", sans-serif;
+}
+
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #8AEDE9;
+}
+
+a:hover {
+    color: #5AE0DB;
+}
+
+/* banner */
+#banner {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner > * {
+    z-index: 2;
+}
+
+#banner::before, #banner::after {
+    display: block; content: '';
+    height: 100%; width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+#banner::before {
+    background-repeat: repeat;
+    background-color: #fcfcfc;
+    /* http://bg-patterns.com/?p=1695 */
+    background-image: url("../image/p_da0672_m_da06720.jpg");
+    animation: background-move linear 10s infinite;
+}
+
+#banner::after {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(45deg, #FFF , rgba(255, 255, 255, 0.25), #FFF);
+}
+
+.avatar.wrapper {
+    border-radius: 50%;
+    height: 10em;
+    width: 10em;
+}
+
+.avatar.wrapper::before, .avatar.wrapper::after {
+    display: block; content: '';
+    position: absolute;
+    border-radius: 50%;
+    transition: transform .5s;
+}
+
+.avatar.wrapper::before {
+    top: -5px; right: -5px; bottom: -5px; left: -5px;
+    /*background-image: linear-gradient(90deg, #f35626 0%,#feab3a 100%);*/
+    background-image: linear-gradient(90deg, deepskyblue 5%, aqua);
+}
+
+.animated .avatar.wrapper::before {
+    animation: hue 2s linear infinite, advent .5s linear forwards;
+}
+
+.avatar.wrapper::after {
+    top: 0; right: 0; bottom: 0; left: 0;
+    clip-path: circle(0%);
+    background-color: #FFF;
+}
+
+.animated .avatar.wrapper::after {
+    animation: advent .5s linear 1.25s forwards;
+}
+
+.avatar.wrapper:hover::before, .avatar.wrapper:hover::after {
+    transform: scale(1.2);
+}
+
+.avatar.wrapper .avatar {
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    clip-path: circle(0%);
+    border-radius: inherit;
+}
+
+#banner.animated .avatar.wrapper .avatar {
+    animation: advent .5s linear 1.25s forwards;
+}
+
+#banner h1 {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+#banner h1, #banner h1 + .sub.header {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 2px;
+    padding: 0 .25em;
+}
+
+#banner h1::before, #banner h1 + .sub.header::before {
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 100%; width: 100%;
+    display: block; content: '';
+    background-color: white;
+}
+
+#banner.animated h1::before,
+#banner.animated h1 + .sub.header::before {
+    animation: reveal .5s ease-out .5s forwards;
+}
+
+h1 + .sub.header {
+    margin-top: 0;
+}
+
+/* content */
+.container {
+    max-width: 992px;
+    margin: auto;
+    padding: .5rem 0;
+}
+
+section h2 {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    z-index: 2;
+    font-size: 1.75em;
+    background-color: #FFF;
+}
+
+section h2::after {
+    display: block; content: '';
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    top: 0; left: -16px;
+    background-color: #34d4d0;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    gap: 5px;
+}
+
+.items > .item {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+    word-spacing: normal;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #000;
+    border: 2px solid lightgrey;
+    transition: border .2s ease;
+}
+
+.items > .item:hover {
+    border: 2px solid #34d4d0;
+}
+
+.items > .item > i[class^="devicon-"] {
+    font-size: 6em;
+    padding: .5rem 0;
+}
+
+.items > .item > .name {
+    font-size: 1.5em;
+}
+
+.items > .item > .name::before {
+    display: block; content: '';
+    position: absolute;
+    bottom: -1px; left: 50%; right: 50%;
+    height: 2px;
+    background-color: #34d4d0;
+    transition: left .2s, right .2s;
+}
+
+.items > .item:hover > .name::before {
+    left: 0; right: 0;
+}
+
+.items > .item picture, .items > .item img:not(.icon) {
+    width: 100%;
+}
+
+.items > .item > img.icon {
+    height: 6em;
+    width: 6em;
+    padding: .5em 0;
+}
+
+.two.items {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.compact.items > .item {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.compact.items > .item > i[class*="devicon-"] {
+    font-size: 2em;
+    padding: 0 .15em 0 0;
+}
+
+.compact.items > .item > img.icon {
+    height: 2em;
+    width: 2em;
+    box-sizing: content-box;
+    padding: 0 .3em 0 0;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    background-color: #262626;
+    padding: 2.5em 0;
+    color: #f2f2f2;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: minmax(min-content, 3fr) auto;
+}
+
+footer .copyright p {
+    text-align: right;
+    margin: 0;
+}
+
+@keyframes background-move {
+    0% {
+        background-position: 0 0;  
+    }
+
+    100% {
+        background-position: 128px -148px;
+    }
+}
+
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes advent {
+    from {
+        clip-path: circle(0%);
+    }
+    to {
+        clip-path: circle(50%);
+    }
+}
+
+@keyframes reveal {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        margin-left: .5em;
+        margin-right: .5em;
+    }
+
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section h2::after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .two.items {
+        grid-template-columns: 1fr;
+    }
+
+    .compact.items {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .compact.items > .item {
+        grid-column: 2 / 3;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .compact.items {
+        grid-template-columns: 1fr;
+    }
+
+    .compact.items > .item {
+        grid-column: 1;
+    }
+
+    footer {
+        padding: 1em 0;
+    }
+}
