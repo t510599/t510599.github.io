@@ -66,64 +66,64 @@
             <div class="two items">
                 <a href="https://31.infor.org/" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/31.infor.org.webp" type="image/webp">
-                        <img src="assets/image/31.infor.org.png" alt="infor">
+                        <source data-srcset="assets/image/webp/31.infor.org.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/31.infor.org.png" alt="infor">
                     </picture>
                     <div class="name">INFOR 31<sup>st</sup> 官網</div>
                     <div class="description">社團官網</div>
                 </a>
                 <a href="https://cscamp.infor.org/2018/" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/cscamp.infor.org.webp" type="image/webp">
-                        <img src="assets/image/cscamp.infor.org.png" alt="cscamp">
+                        <source data-srcset="assets/image/webp/cscamp.infor.org.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/cscamp.infor.org.png" alt="cscamp">
                     </picture>
                     <div class="name">《資意成楓建美景》 官網</div>
                     <div class="description">《資意成楓建美景》-- 2018 建景楓成四校聯合電資暑訓</div>
                 </a>
                 <a href="https://app.stoneapp.tech/editor/" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/editor.webp" type="image/webp">
-                        <img src="assets/image/editor.png" alt="webeditor">
+                        <source data-srcset="assets/image/webp/editor.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/editor.png" alt="webeditor">
                     </picture>
                     <div class="name">Web Editor</div>
                     <div class="description">即時編輯、預覽網頁。</div>
                 </a>
                 <a href="https://app.stoneapp.tech/#cavern" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/cavern.webp" type="image/webp">
-                        <img src="assets/image/cavern.png" alt="cavern">
+                        <source data-srcset="assets/image/webp/cavern.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/cavern.png" alt="cavern">
                     </picture>
                     <div class="name">Cavern</div>
                     <div class="description">簡易、輕量級的部落格系統。</div>
                 </a>
                 <a href="https://github.com/t510599/python-card-web" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/eod.webp" type="image/webp">
-                        <img src="assets/image/eod.png" alt="eod">
+                        <source data-srcset="assets/image/webp/eod.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/eod.png" alt="eod">
                     </picture>
                     <div class="name">災厄之悲歌</div>
                     <div class="description">即時連線卡牌對戰遊戲，透過 websocket 達成。</div>
                 </a>
                 <a href="https://github.com/t510599/210-seat" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/210-seat.webp" type="image/webp">
-                        <img src="assets/image/210-seat.png" alt="210-seat">
+                        <source data-srcset="assets/image/webp/210-seat.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/210-seat.png" alt="210-seat">
                     </picture>
                     <div class="name">自己選自己的</div>
                     <div class="description">一個抽籤選座位程式。先生成一張隨機座位表，再根據所有人輸入的需求進行移動，以達到較為公平的結果。</div>
                 </a>
                 <a href="https://github.com/t510599/frc-library" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/frclib.webp" type="image/webp">
-                        <img src="assets/image/frclib.png" alt="frc-library">
+                        <source data-srcset="assets/image/webp/frclib.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/frclib.png" alt="frc-library">
                     </picture>
                     <div class="name">臉部辨識圖書館</div>
                     <div class="description">運用臉部辨識技術之智慧圖書館原型。</div>
                 </a>
                 <a href="https://t510599.github.io/" class="item" target="_blank" rel="noopener">
                     <picture>
-                        <source srcset="assets/image/webp/this.webp" type="image/webp">
-                        <img src="assets/image/this.png" alt="personal page">
+                        <source data-srcset="assets/image/webp/this.webp" type="image/webp">
+                        <img class="lazyload" data-src="assets/image/this.png" alt="personal page">
                     </picture>
                     <div class="name">個人網站</div>
                     <div class="description">This</div>
@@ -163,6 +163,7 @@
                 </div>
             </div>
         </footer>
+        <script src="assets/vendor/lazysizes/lazysizes.min.js"></script>
         <script>
             window.addEventListener("load", function(ev) {
                 document.querySelector("#banner").classList.add("animated");
