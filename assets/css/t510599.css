@@ -203,6 +203,10 @@ section h2::after {
     left: 0; right: 0;
 }
 
+.items > .item > .description {
+    text-align: center;
+}
+
 .items > .item picture, .items > .item img:not(.icon) {
     width: 100%;
 }
@@ -221,6 +225,10 @@ section h2::after {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.compact.items > .item > .name {
+    align-self: center;
 }
 
 .compact.items > .item > i[class*="devicon-"] {
