@@ -253,7 +253,7 @@ footer {
 
 footer .container {
     display: grid;
-    grid-template-columns: minmax(min-content, 3fr) auto;
+    grid-template-columns: auto max-content;
 }
 
 footer .copyright p {
@@ -300,8 +300,8 @@ footer .copyright p {
 
 @media screen and (max-width: 992px) {
     .container {
-        margin-left: .5em;
-        margin-right: .5em;
+        margin-left: .75em;
+        margin-right: .75em;
     }
 
     .items {
@@ -337,6 +337,6 @@ footer .copyright p {
     }
 
     footer {
-        padding: 1em 0;
+        padding: 1.5em 0;
     }
 }
