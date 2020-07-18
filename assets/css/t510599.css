@@ -340,3 +340,13 @@ footer .copyright p {
         padding: 1.5em 0;
     }
 }
+
+@media (prefers-reduced-motion) {
+    #banner::before {
+        animation: none;
+    }
+
+    .animated .avatar.wrapper::before {
+        animation: advent .5s linear forwards;
+    }
+}
