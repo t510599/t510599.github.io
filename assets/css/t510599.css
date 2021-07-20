@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     margin: 0;
     min-height: 100%;
-    font-family: 'Consolas', 'Noto Sans TC', "微軟正黑體", "Microsoft JhengHei", sans-serif;
+    font-family: 'Consolas', 'Noto Sans CJK TC', "微軟正黑體", "Microsoft JhengHei", sans-serif;
 }
 
 * {
@@ -11,13 +11,34 @@ html, body {
     box-sizing: border-box;
 }
 
+:root {
+    --theme-color: hsl(209, 59%, 60%);
+    --background-color: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 0%);
+    --link-color: hsl(209, 65%, 60%);
+    --link-hover-color: hsl(209, 65%, 50%);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
 a {
     text-decoration: none;
-    color: #8AEDE9;
+    color: var(--link-color);
 }
 
 a:hover {
-    color: #5AE0DB;
+    color: var(--link-hover-color);
+}
+
+hr {
+    border: 2px solid #999;
+    border-width: 2px 0 0 0;
+}
+
+i[class^="devicon-"]::before {
+    vertical-align: middle;
 }
 
 /* banner */
@@ -70,7 +91,6 @@ a:hover {
 
 .avatar.wrapper::before {
     top: -5px; right: -5px; bottom: -5px; left: -5px;
-    /*background-image: linear-gradient(90deg, #f35626 0%,#feab3a 100%);*/
     background-image: linear-gradient(90deg, deepskyblue 5%, aqua);
 }
 
@@ -119,6 +139,7 @@ a:hover {
     left: 0; bottom: 0;
     height: 100%; width: 100%;
     display: block; content: '';
+    border-radius: 2px;
     background-color: white;
 }
 
@@ -144,7 +165,8 @@ section h2 {
     margin: 0;
     z-index: 2;
     font-size: 1.75em;
-    background-color: #FFF;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 section h2::after {
@@ -153,7 +175,7 @@ section h2::after {
     height: 100%;
     position: absolute;
     top: 0; left: -16px;
-    background-color: #34d4d0;
+    background-color: var(--theme-color);
 }
 
 .items {
@@ -172,13 +194,14 @@ section h2::after {
     word-spacing: normal;
     border-radius: 3px;
     text-decoration: none;
-    color: #000;
+    text-align: center;
+    color: var(--text-color);
     border: 2px solid lightgrey;
     transition: border .2s ease;
 }
 
 .items > .item:hover {
-    border: 2px solid #34d4d0;
+    border: 2px solid var(--theme-color);
 }
 
 .items > .item > i[class^="devicon-"] {
@@ -188,14 +211,15 @@ section h2::after {
 
 .items > .item > .name {
     font-size: 1.5em;
+    line-height: 1.5em;
 }
 
 .items > .item > .name::before {
     display: block; content: '';
     position: absolute;
-    bottom: -1px; left: 50%; right: 50%;
+    bottom: 2px; left: 50%; right: 50%;
     height: 2px;
-    background-color: #34d4d0;
+    background-color: var(--theme-color);
     transition: left .2s, right .2s;
 }
 
@@ -209,12 +233,17 @@ section h2::after {
 
 .items > .item picture, .items > .item img:not(.icon) {
     width: 100%;
+    margin-bottom: .125em;
 }
 
 .items > .item > img.icon {
     height: 6em;
     width: 6em;
     padding: .5em 0;
+}
+
+.three.items {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .two.items {
@@ -243,12 +272,18 @@ section h2::after {
     padding: 0 .3em 0 0;
 }
 
+#ctf .item > span.rank {
+    color: var(--theme-color);
+    font-weight: bold;
+}
+
 /* footer */
 footer {
     width: 100%;
-    background-color: #262626;
+    background-color: hsl(0, 0%, 15%);
     padding: 2.5em 0;
-    color: #f2f2f2;
+    margin-top: 1em;
+    color: hsl(0, 0%, 95%);
 }
 
 footer .container {
@@ -314,6 +349,10 @@ footer .copyright p {
 }
 
 @media screen and (max-width: 768px) {
+    .three.items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .two.items {
         grid-template-columns: 1fr;
     }
@@ -328,10 +367,14 @@ footer .copyright p {
 }
 
 @media screen and (max-width: 512px) {
+    #experience .items,
+    .three.items,
     .compact.items {
         grid-template-columns: 1fr;
     }
 
+    #experience .items > .item,
+    .three.items > .item,
     .compact.items > .item {
         grid-column: 1;
     }
