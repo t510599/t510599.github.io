@@ -296,6 +296,42 @@ footer .copyright p {
     margin: 0;
 }
 
+/* dark mode */
+.dark:root {
+    --text-color: hsl(0, 0%, 95%);
+    --background-color: hsl(0, 0%, 15%);
+}
+
+.dark i.devicon-linux-plain,
+.dark i.devicon-github-plain {
+    color:var(--text-color);
+}
+
+.dark #banner::after {
+    mix-blend-mode: exclusion;
+}
+
+.dark #banner h1::before,
+.dark #banner h1 + .sub.header::before {
+    background-color: var(--background-color);
+}
+
+.dark #banner.animated h1::before,
+.dark #banner.animated h1 + .sub.header::before {
+    height: 0;
+    background-color: hsl(0, 0%, 100%);
+    mix-blend-mode: exclusion;
+    animation-direction: reverse;
+}
+
+.dark footer {
+    background-color: hsl(0, 0%, 30%);
+}
+
+.dark img.icon[alt="email"] {
+    filter: invert();
+}
+
 @keyframes background-move {
     0% {
         background-position: 0 0;  

@@ -236,6 +236,28 @@
             window.addEventListener("load", function(ev) {
                 document.querySelector("#banner").classList.add("animated");
             });
+
+            const match = window.matchMedia("(prefers-color-scheme: dark)");
+            if (match.addListener) {
+                match.addListener(switchDarkMode);
+            } else {
+                // sad safari
+                match.addEventListener('change', switchDarkMode);
+            }
+
+            function switchDarkMode(arg) {
+                let node = document.documentElement;
+                let darkMode = false;
+                
+                if (arg instanceof MediaQueryList || arg instanceof MediaQueryListEvent) {
+                    darkMode = arg.matches;
+                } else {
+                    darkMode = arg;
+                }
+                
+                node.classList.toggle("dark", darkMode);
+            }
+            switchDarkMode(match);
         </script>
     </body>
 </html>
