@@ -15,6 +15,7 @@
         <meta property="og:image" content="https://t510599.github.io/assets/image/avatar.png" />
     </head>
     <body>
+        <div class="switch">Switch!</div>
         <header id="banner">
             <div class="avatar wrapper">
                 <img class="avatar" src="assets/image/avatar.png" alt="avatar" />
@@ -262,6 +263,10 @@
                 node.classList.toggle("dark", darkMode);
             }
             switchDarkMode(match);
+
+            document.querySelector(".switch").addEventListener("click", (ev) => {
+                switchDarkMode(!document.documentElement.classList.contains("dark"));
+            });
         </script>
     </body>
 </html>

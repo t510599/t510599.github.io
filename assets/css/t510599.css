@@ -9,6 +9,8 @@ html, body {
 * {
     position: relative;
     box-sizing: border-box;
+
+    transition: color .125s linear, background-color .125s linear;
 }
 
 :root {
@@ -17,6 +19,9 @@ html, body {
     --text-color: hsl(0, 0%, 0%);
     --link-color: hsl(209, 65%, 60%);
     --link-hover-color: hsl(209, 65%, 50%);
+
+    --dark-background-color: hsl(0, 0%, 15%);
+    --light-text-color: hsl(0, 0%, 95%);
 }
 
 body {
@@ -39,6 +44,18 @@ hr {
 
 i[class^="devicon-"]::before {
     vertical-align: middle;
+}
+
+.switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+
+    padding: .1em .25em;
+
+    background-color: var(--dark-background-color);
+    color: var(--light-text-color);
 }
 
 /* banner */
@@ -311,13 +328,18 @@ footer .copyright p {
 
 /* dark mode */
 .dark:root {
-    --text-color: hsl(0, 0%, 95%);
-    --background-color: hsl(0, 0%, 15%);
+    --text-color: var(--light-text-color);
+    --background-color: var(--dark-background-color);
 }
 
 .dark i.devicon-linux-plain,
 .dark i.devicon-github-plain {
     color:var(--text-color);
+}
+
+.dark .switch {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
 }
 
 .dark #banner::after {
