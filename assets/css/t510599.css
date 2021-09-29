@@ -272,6 +272,19 @@ section h2::after {
     padding: 0 .3em 0 0;
 }
 
+#experience .item > div.year {
+    position: absolute;
+    top: .5em;
+    /* overlap border */
+    right: -2px;
+
+    padding: .25em .5em .25em .75em;
+    background-color: hsl(209, 100%, 65%);
+    color: hsl(0, 75%, 100%);
+
+    clip-path: polygon(0% 0%, .25em 50%, 0% 100%, 100% 100%, 100% 0%);
+}
+
 #ctf .item > span.rank {
     color: var(--theme-color);
     font-weight: bold;
