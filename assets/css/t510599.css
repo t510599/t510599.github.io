@@ -56,6 +56,9 @@ i[class^="devicon-"]::before {
 
     background-color: var(--dark-background-color);
     color: var(--light-text-color);
+
+    cursor: pointer;
+    user-select: none;
 }
 
 /* banner */
