@@ -280,11 +280,6 @@ section h2::after {
     align-self: center;
 }
 
-.compact.items > .item > i[class*="devicon-"] {
-    font-size: 2em;
-    padding: 0 .15em 0 0;
-}
-
 .compact.items > .item > img.icon {
     height: 2em;
     width: 2em;
