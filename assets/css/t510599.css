@@ -361,8 +361,8 @@ footer .copyright p {
     background-color: hsl(0, 0%, 30%);
 }
 
-.dark img.icon[alt="email"] {
-    filter: invert();
+.dark img.icon:not([alt="telegram"]) {
+    filter: invert(0.95);
 }
 
 @keyframes background-move {
