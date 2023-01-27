@@ -239,7 +239,7 @@
         <footer>
             <div class="container">
                 <div class="quote">
-                    > 與其給他魚，不如給他曬網。
+                    > <!--與其給他魚，不如給他曬網。-->
                 </div>
                 <div class="copyright">
                     <p>&copy; 2023 <a href="https://t510599.github.io/" rel="noopener">t510599</a></p>
@@ -251,8 +251,47 @@
         <script>
             window.addEventListener("load", function(ev) {
                 document.querySelector("#banner").classList.add("animated");
+                observer.observe(document.querySelector("footer"));
             });
+            
+            /*
+               Quote Typer
+            */
+            let quoteTyped = false;
+            function quoteTyping() {
+                let quoteEl = document.querySelector(".quote");
+                let text = quoteEl.innerHTML.match(/\<!--(.*)--\>/)[1];
 
+                if (text == "") {
+                    // done typing
+                    quoteEl.innerHTML = quoteEl.innerHTML.replace("<!---->", "");
+                    quoteEl.classList.add("done");
+                    return;
+                }
+
+                // type single character
+                quoteEl.innerHTML = quoteEl.innerHTML.replace(/\<!--(.)/, "$1<!--");
+                setTimeout(quoteTyping, 150);
+            }
+
+            function quoteTypingObserver(entries) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting || quoteTyped) return;
+
+                    quoteTyped = true;
+                    setTimeout(quoteTyping, 500);
+                });
+            }
+
+            let observer = new IntersectionObserver(
+                quoteTypingObserver,
+                { root: null, rootMargin: "0px 0px 0px 0px", threshold: 0.0 }
+            );
+
+
+            /*
+               Dark Mode
+            */
             const match = window.matchMedia("(prefers-color-scheme: dark)");
             if (match.addListener) {
                 match.addListener(switchDarkMode);

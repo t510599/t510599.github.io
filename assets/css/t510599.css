@@ -325,6 +325,18 @@ footer .container {
     grid-template-columns: auto max-content;
 }
 
+footer .quote::after {
+    display: inline-block;
+    content: "│";
+    margin: -.5em;
+    animation: cursor-blink .75s linear infinite;
+}
+
+footer .quote.done::after {
+    display: none;
+    animation: none;
+}
+
 footer .copyright p {
     text-align: right;
     margin: 0;
@@ -406,6 +418,18 @@ footer .copyright p {
     }
     to {
         height: 0;
+    }
+}
+
+@keyframes cursor-blink {
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    0% {
+        opacity: 1;
     }
 }
 
