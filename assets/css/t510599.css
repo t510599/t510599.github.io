@@ -287,6 +287,11 @@ section h2::after {
     padding: 0 .3em 0 0;
 }
 
+#presentation .items {
+    grid-template-columns: 1fr;
+}
+
+#presentation .item > div.year,
 #experience .item > div.year {
     position: absolute;
     top: .5em;
@@ -418,6 +423,12 @@ footer .copyright p {
 }
 
 @media screen and (max-width: 768px) {
+    #presentation .item > div.year {
+        position: relative;
+        align-self: flex-end;
+        transform: translateX(calc(.5em)) translateY(-.5em);
+    }
+
     .three.items {
         grid-template-columns: repeat(2, 1fr);
     }
