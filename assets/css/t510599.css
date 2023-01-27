@@ -93,6 +93,7 @@ i[class^="devicon-"]::before {
 #banner::after {
     background-color: rgba(255, 255, 255, 0.5);
     background-image: linear-gradient(45deg, #FFF , rgba(255, 255, 255, 0.25), #FFF);
+    animation: filter-transition-light 0.125s linear forwards;
 }
 
 .avatar.wrapper {
@@ -347,6 +348,7 @@ footer .copyright p {
 
 .dark #banner::after {
     mix-blend-mode: exclusion;
+    animation-name: filter-transition-dark;
 }
 
 .dark #banner h1::before,
@@ -404,6 +406,24 @@ footer .copyright p {
     }
     to {
         height: 0;
+    }
+}
+
+/* same animation, just different name */
+@keyframes filter-transition-light {
+    from {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes filter-transition-dark {
+    from {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 1;
     }
 }
 
