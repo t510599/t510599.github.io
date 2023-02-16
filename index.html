@@ -282,6 +282,7 @@
                     // done typing
                     quoteEl.innerHTML = quoteEl.innerHTML.replace("<!---->", "");
                     quoteEl.classList.add("done");
+                    observer.disconnect();
                     return;
                 }
 
