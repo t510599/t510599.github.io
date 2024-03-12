@@ -277,7 +277,7 @@
                     <img class="icon" src="assets/vendor/fontawesome/facebook-square-brands.svg" alt="facebook" />
                     <div class="name">FaceBook</div>
                 </a>
-                <a class="item" href="mailto:t510599@stoneapp.tech">
+                <a class="item" href="mailto:t510599[at]stoneapp.tech">
                     <img class="icon" src="assets/vendor/fontawesome/envelope-solid.svg" alt="email" />
                     <div class="name">Email</div>
                 </a>
@@ -299,6 +299,12 @@
             window.addEventListener("load", function(ev) {
                 document.querySelector("#banner").classList.add("animated");
                 observer.observe(document.querySelector("footer"));
+            });
+
+            // Decode Email
+            document.querySelectorAll("a[href^='mailto:']").forEach((el) => {
+                let email = el.getAttribute("href").replace("[at]", "@");
+                el.setAttribute("href", "mailto:" + email);
             });
             
             /*
