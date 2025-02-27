@@ -304,7 +304,7 @@
             // Decode Email
             document.querySelectorAll("a[href^='mailto:']").forEach((el) => {
                 let email = el.getAttribute("href").replace("[at]", "@");
-                el.setAttribute("href", "mailto:" + email);
+                el.setAttribute("href", email);
             });
             
             /*
