@@ -29,5 +29,24 @@
         <div class="ts crazy poyon">
             <img src="assets/image/avatar.png">
         </div>
+        <script>
+            document.documentElement.focus();
+
+            const $avatarImg = document.querySelector('.ts.crazy.poyon img');
+            // konami cheats
+            let keyQueue = [];
+
+            document.addEventListener('keydown', function(e) {
+                if (!e.shiftKey && !e.ctrlKey && !e.altKey) keyQueue.push(e.key);
+                if (keyQueue.length > 10) {
+                    keyQueue.shift();
+                }
+
+                if (keyQueue.join(',') === 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a') {
+                    $avatarImg.src = 'assets/image/avatar-sunglass.png';
+                    keyQueue = [];
+                }
+            });
+        </script>
     </body>
 </html>
